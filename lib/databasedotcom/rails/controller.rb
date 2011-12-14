@@ -5,19 +5,19 @@ module Databasedotcom
         def dbdc_client
           unless @dbdc_client
             puts "yo"
-            config = YAML.load_file(File.join(::Rails.root, 'config', 'databasedotcom.yml'))
-            @dbdc_client = Databasedotcom::Client.new(config)
-            if config['authtype'] == 'password'
-              username = config["username"]
-              password = config["password"]
-              @dbdc_client.authenticate(:username => username, :password => password)
-            elseif config['authtype'] == 'token'
-              token = config['token']
-              instance_url = config['instance_url']
-              @dbdc_client.authenticate(:token => token, :instance_url => instance_url)
-            else
-              @dbdc_client.authentication(JSON.parse(ENV[config['authtype']]))
-            end
+            #config = YAML.load_file(File.join(::Rails.root, 'config', 'databasedotcom.yml'))
+            #@dbdc_client = Databasedotcom::Client.new(config)
+            #if config['authtype'] == 'password'
+            ##  username = config["username"]
+           #   password = config["password"]
+            #  @dbdc_client.authenticate(:username => username, :password => password)
+           # elseif config['authtype'] == 'token'
+            #  token = config['token']
+            #  instance_url = config['instance_url']
+            #  @dbdc_client.authenticate(:token => token, :instance_url => instance_url)
+           # else
+           #   @dbdc_client.authentication(JSON.parse(ENV[config['authtype']]))
+          #  end
           end
 
           @dbdc_client
