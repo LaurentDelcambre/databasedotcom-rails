@@ -4,6 +4,7 @@ module Databasedotcom
       module ClassMethods
         def dbdc_client
           unless @dbdc_client
+            puts "yo"
             config = YAML.load_file(File.join(::Rails.root, 'config', 'databasedotcom.yml'))
             @dbdc_client = Databasedotcom::Client.new(config)
             if config['authtype'] == 'password'
